@@ -88,6 +88,31 @@ org.ekstep.contentrenderer.baseLauncher.extend({
         source.type = data.mimeType;
         video.appendChild(source);
 
+        var subTitleEng = document.createElement("track");
+        subTitleEng.kind = "captions";
+        subTitleEng.src = 'fixture-stories/tutorial/066 Section Introduction - Basic Web Application-subtitle-en.vtt';
+        subTitleEng.srclang = "en";
+        subTitleEng.label = "English";
+        subTitleEng.default = true;
+        // console.log('SUBTITLE IS ---------------', subTitleEng);
+        video.appendChild(subTitleEng);
+ 
+        var subTitleSpan = document.createElement("track");
+        subTitleSpan.kind = "captions";
+        subTitleSpan.src = 'fixture-stories/tutorial/066 Section Introduction - Basic Web Application-subtitle-es.vtt';
+        subTitleSpan.srclang = "es";
+        subTitleSpan.label = "Spanish";
+        subTitleSpan.default = false;
+        video.appendChild(subTitleSpan);
+
+        var subTitleHin = document.createElement("track");
+        subTitleHin.kind = "captions";
+        subTitleHin.src = 'fixture-stories/tutorial/066 Section Introduction - Basic Web Application-subtitle-hi.vtt';
+        subTitleHin.srclang = "hi";
+        subTitleHin.label = "Hindi";
+        subTitleHin.default = false;
+        video.appendChild(subTitleHin);
+
         if (window.cordova) {
             var videoPlayer = videojs('videoElement', {
                 "controls": true, "autoplay": true, "preload": "auto",
@@ -100,7 +125,7 @@ org.ekstep.contentrenderer.baseLauncher.extend({
             });
         } else {
             var videoPlayer = videojs('videoElement', {
-                "controls": true, "autoplay": true, "preload": "auto",
+                "controls": true, "autoplay": true, "preload": "auto","playbackRates": [0.5, 0.75, 1, 1.25, 1.5, 2],
                 plugins: {
                     vjsdownload: {
                         beforeElement: 'playbackRateMenuButton',
@@ -136,8 +161,18 @@ org.ekstep.contentrenderer.baseLauncher.extend({
         var vid = videojs("videoElement", {
             "techOrder": ["youtube"],
             "src": path,
-            "controls": true, "autoplay": true, "preload": "auto"
+            "controls": true, "autoplay": true, "preload": "auto","playbackRates": [0.5, 0.75, 1, 1.25, 1.5, 2]
         });
+
+        var subTitleEng = document.createElement("track");
+        subTitleEng.kind = "captions";
+        subTitleEng.src = 'fixture-stories/tutorial/066 Section Introduction - Basic Web Application-subtitle-en.vtt';
+        subTitleEng.srclang = "en";
+        subTitleEng.label = "English";
+        subTitleEng.default = true;
+        console.log('SUBTITLE IS ---------------', subTitleEng);
+        video.appendChild(subTitleEng);
+
         videojs("videoElement").ready(function () {
 			var youtubeInstance = this;
             $('.vjs-default-skin').css('opacity', '1');

@@ -188,8 +188,8 @@
                 "subject": "literacy_v2",
                 "description": "pratham-camal",
                 "name": "Video-Renderer",
-                "downloadUrl": "cat.mp4",
-                "artifactUrl":"cat.mp4",
+                "downloadUrl": "066 Section Introduction - Basic Web Application.mp4",
+                "artifactUrl":"066 Section Introduction - Basic Web Application.mp4",
                 "checksum": null,
                 "loadingMessage": "Without requirements or design, programming is the art of adding bugs to an empty text file. ...",
                 "concepts": [{
@@ -202,7 +202,7 @@
                 "pkgVersion": 1
             },
             "isAvailable": true,
-            "path": "fixture-stories/video-renderer"
+            "path": "fixture-stories/tutorial"
         },
         {
             "identifier": "org.ekstep.pdfrenderer",

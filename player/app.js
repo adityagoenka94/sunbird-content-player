@@ -16,7 +16,14 @@ appConfig = require("./app-data/appConfig.json")
 var express = require("express")
 
 var http = require("http")
-
+var compression = require('compression')
+var favicon = require('serve-favicon')
+var morgan = require('morgan')
+var bodyParser = require('body-parser')
+var methodOverride = require('method-override')
+var cookieParser = require('cookie-parser')
+var session = require('express-session')
+var errorhandler = require('errorhandler')
 var path = require("path")
 
 var fs = require("fs")
@@ -29,25 +36,25 @@ app.set("port", 3000)
 // eslint-disable-next-line
 app.set("views", __dirname + "/views")
 app.set("view engine", "ejs")
-app.use(express.favicon())
-app.use(express.logger("dev"))
-app.use(express.compress())
+// app.use(favicon())
+app.use(morgan("dev"))
+app.use(compression())
 app.use(express.json())
 app.use(express.urlencoded())
-app.use(express.bodyParser())
-app.use(express.methodOverride())
-app.use(express.cookieParser())
+app.use(bodyParser())
+app.use(methodOverride())
+app.use(cookieParser())
 
-app.use(express.session({
+app.use(session({
 	secret: "1234"
 }))
 
-app.use(app.router)
-app.locals({
+// app.use(app.router)
+ /* app.locals({
 	contextPath: ""
-})
+}) */ 
 
-app.use(express.compress())
+app.use(compression())
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.static(path.join(__dirname, "../js-libs/")))
 app.use(express.static(path.join(__dirname, "../player/node_modules/")))
@@ -55,7 +62,7 @@ app.use(express.static(path.join(__dirname, "views")))
 
 // development only
 if (app.get("env") === "development") {
-	app.use(express.errorHandler())
+	app.use(errorhandler())
 }
 
 // Bootstrap routes

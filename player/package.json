@@ -6,13 +6,22 @@
         "@project-sunbird/telemetry-sdk": "^0.0.14",
         "ajv": "^6.9.2",
         "audiosprite": "*",
+        "body-parser": "^1.19.0",
+        "compression": "^1.7.4",
+        "cookie-parser": "^1.4.4",
         "download": "4.4.3",
         "ejs": "*",
+        "errorhandler": "^1.5.1",
         "express": ">=3.11.0",
+        "express-session": "^1.17.0",
         "fingerprintjs2": "^2.0.6",
         "grunt-contrib-concat": "^1.0.1",
         "jsonfile": "*",
+        "method-override": "^3.0.0",
+        "morgan": "^1.9.1",
         "node-rest-client": ">=1.0.0",
+        "path": "^0.12.7",
+        "serve-favicon": "^2.5.0",
         "underscore": "*",
         "xml2json": "*"
     },
@@ -99,7 +108,10 @@
     },
     "watch": {
         "build-preview-windows": {
-            "patterns": ["src", "test"],
+            "patterns": [
+                "src",
+                "test"
+            ],
             "extensions": "js,jsx",
             "quiet": true,
             "legacyWatch": true,
